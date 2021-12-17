@@ -15,8 +15,11 @@ class Pessoa extends CI_Controller{
     
     function __construct(){
         parent::__construct();
+        if (!$this->session->userdata('estou_logado')) {
+            redirect('Login');
+        }
         //pessoa este é um apelido para o model
-        $this->load->model('Pessoa_model','pessoa');
+        $this->load->model('Pessoa_model', 'pessoa');
     }
     
     public function index(){

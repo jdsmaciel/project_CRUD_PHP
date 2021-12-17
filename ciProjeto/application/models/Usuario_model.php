@@ -11,42 +11,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author maciel
  */
-class Pessoa_model extends CI_Model {
+class Usuario_model extends CI_Model {
     
     function __construct() {
         parent::__construct();
     }
     
-    function inserir($p){
-        return $this->db->inserir('pessoa', $p); //pessoa é o nome da tabela no banco
+    function insert($p){
+        return $this->db->inserir('user', $p); //Usuário é o nome da tabela no banco
     }
     
     function deletar($id) {
         //condição
-        $this->db->where('idPessoa',$id);
+        $this->db->where('idusuario',$id);
         //tabela
-        return $this->db->delete('pessoa');   
+        return $this->db->delete('user');   
     }
     
-    function editar($idPessoa) {
-        $this->db->where('idPessoa', $idPessoa);
+    function editar($idUsuario) {
+        $this->db->where('idusuario', @id);
         //Nesse caso ele está retornando os dados de uma pessoa
-        $result = $this->db->get('pessoa');
+        $result = $this->db->get('user');
         return $result->result();
     }
     
     function atualizar($data){
-        $this->db->where('idPessoa',$data['idPessoa']);
+        $this->db->where('idusuario',$data['idusuario']);
         $this->db->set($data);
-        return $this->db->update('pessoa');
+        return $this->db->update('user');
     }
     
     
     function listar(){
         $this->db->select('*');
-        $this->db->from('pessoa');
-        $this->db->order_by('sexo','ASC');
-        $this->db->order_by('nome','ASC');
+        $this->db->from('user');
+        $this->db->order_by('perfilAcesso','ASC');       
+        $this->db->order_by('nomeUsuario','ASC');       
         $query = $this->db->get();
         return $query->result();
     }

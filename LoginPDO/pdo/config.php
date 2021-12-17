@@ -1,0 +1,12 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$host = 'localhost';  // Nesse local seria inserido o endereço do meu servidor
+$dbName = 'dev3n201';
+$user = 'root';
+$password = '';
+
