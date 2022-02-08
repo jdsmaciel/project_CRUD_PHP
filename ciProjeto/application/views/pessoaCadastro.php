@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>Teste de cadastro de pessoa</h1>
+        <a href="<?php echo base_url() . 'home'; ?>">Home</a>
         <h1>Cadastro de Pessoa</h1>
         <?php echo form_open('pessoa/inserir'); ?>
             <input type="text" name="nome" required placeholder="Nome aqui..."/>
@@ -21,17 +21,17 @@ and open the template in the editor.
             <br><br>
             <input type="text" name="endereco" required placeholder="Enderço aqui..."/>
             <br><br>
-            <input type="radio" name="tpPessoa" required value="Fisica">Física
-            <input type="radio" name="tpPessoa" required value="Juridica">Juridica
-            <br></br>
-            <input type="number" name="cpf" required placeholder="CPF aqui..."/>
+            <input type="radio" name="tpPessoa" required value="Fisica">Fisíca
+            <input type="radio" name="tpPessoa" required value="Juridica">Jurídica
             <br><br>
-            <input type="radio" name="sexo"  value="F">Feminino
-            <input type="radio" name="sexo"  value="M">Masculino
+            <input type="number" name="cpf" placeholder="CPF aqui..."/>
             <br><br>
-            <input type="number" name="cnpj"  placeholder="CNPJ aqui..."/>
+            <input type="radio" name="sexo" value="F">Feminino
+            <input type="radio" name="sexo" value="M">Masculino
             <br><br>
-            <input type="text" name="nomeFantasia"  placeholder="Nome fantasia aqui..."/>
+            <input type="number" name="cnpj" placeholder="CNPJ aqui..."/>
+            <br><br>
+            <input type="text" name="nomeFantasia" placeholder="Nome Fantasia aqui..."/>
             <br><br>
             <input type="submit" name="salvarPF" value="Salvar">
             <input type="reset" name="limpar" value="Limpar">
@@ -54,18 +54,17 @@ and open the template in the editor.
                             echo 'PF';
                         }else{
                             echo 'PJ';
-                        }?>
-                        <a href="<?php echo base_url() .
-                               'pessoa/editar/' .
-                               $pes->idPessoa;?>">Editar</a> |
-                        <a href="<?php echo base_url() .
-                               'pessoa/deletar/' .
-                               $pes->idPessoa;?>">Excluir</a>
+                        } ?>
+                        <a href="<?php echo base_url() . 
+                                'pessoa/editar/' .
+                                $pes->idPessoa;?>">Editar</a> | 
+                        <a href="<?php echo base_url() . 
+                                'pessoa/excluir/' .
+                                $pes->idPessoa;?>">Excluir</a>
                     </td>
-
                 </tr>
                 <?php endforeach; ?>
-            </tbody>    
-        </table>    
+            </tbody>
+        </table>
     </body>
 </html>

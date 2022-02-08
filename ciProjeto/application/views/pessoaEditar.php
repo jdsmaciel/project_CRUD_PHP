@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <a href="<?php echo base_url() . 'pessoa'; ?>">voltar</a>
+        <a href="<?php echo base_url() . 'pessoa'; ?>">Voltar</a>
         <h1>Editar Pessoa</h1>
         <?php echo form_open('pessoa/atualizar'); ?>
             <input type="hidden" name="idPessoa" required value="<?php echo $pessoa[0]->idPessoa; ?>"/>
@@ -47,6 +47,5 @@ and open the template in the editor.
             <br><br>
             <input type="submit" name="salvarPF" value="Salvar">
         <?php echo form_close(); ?>
-        
     </body>
 </html>

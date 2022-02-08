@@ -1,28 +1,19 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Description of login
- *
- * @author maciel
- */
 class Login extends CI_Controller {
-    //put your code here
-    
+
     function __construct() {
         parent::__construct();
     }
+
     public function index() {
         $this->load->view('template/header');
         $this->load->view('login');
         $this->load->view('template/footer');
     }
-    
+
     public function autenticar() {
         $usuario = mb_convert_case($this->input->post('user'), MB_CASE_LOWER);
         $senha = md5(mb_convert_case($this->input->post('senha'), MB_CASE_LOWER));
@@ -50,4 +41,5 @@ class Login extends CI_Controller {
         $this->session->set_userdata($dados);
         redirect('Login');
     }
+
 }

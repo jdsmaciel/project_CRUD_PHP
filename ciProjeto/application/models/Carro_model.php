@@ -12,42 +12,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author jairb
  */
-class Pessoa_model extends CI_Model {
+class Carro_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
-    function inserir($p) {
-        return $this->db->insert('pessoa', $p); //pessoa é o nome da tabela no banco
+    function inserir($c) {
+        return $this->db->insert('carro', $c); //carro é o nome da tabela no banco
     }
     
     function deletar($id) {
-        $this->db->where('idPessoa',$id);
-        return $this->db->delete('pessoa');
+        $this->db->where('idCarro',$id);
+        return $this->db->delete('carro');
     }
     
-    function editar($idPessoa){
-        $this->db->where('idPessoa',$idPessoa);
-        $result = $this->db->get('pessoa');
+    function editar($idCarro){
+        $this->db->where('idCarro',$idCarro);
+        $result = $this->db->get('carro');
         return $result->result();
     }
     
     function atualizar($data) {
-        $this->db->where('idPessoa',$data['idPessoa']);
+        $this->db->where('idCarro',$data['idCarro']);
         $this->db->set($data);
-        return $this->db->update('pessoa');
+        return $this->db->update('carro');
     }
 
     /**
-     * Este método retorna a lista de pessoas.
+     * Este método retorna a lista de carros.
      * @return type
      */
     function listar() {
         $this->db->select('*');
-        $this->db->from('pessoa');
-        $this->db->order_by('sexo', 'ASC');
-        $this->db->order_by('nome', 'ASC');
+        $this->db->from('carro');
+        $this->db->order_by('marca', 'ASC');
+        $this->db->order_by('modelo', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }
