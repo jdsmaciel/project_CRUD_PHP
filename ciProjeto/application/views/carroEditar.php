@@ -23,8 +23,19 @@ and open the template in the editor.
             <input type="text" name="placa" required value="<?php echo $carro[0]->placa; ?>">
             <br><br>
             <input type="text" name="porta" required value="<?php echo $carro[0]->porta; ?>">
-            <br><br><!-- comment -->
-            <input type="text" name="idPessoa" required value="<?php echo $carro[0]->idPessoa; ?>">
+            
+            <br><br>
+            <select name="idPessoa">
+                <option value="">Proprietário</option>
+                <?php foreach ($pessoas as $pes): ?>
+                <option value="<?php echo $pes->idPessoa; ?>"
+                    <?php if($pes->idPessoa == $carro[0]->idPessoa){
+                        echo 'selected';} ?>>
+                    <?php echo $pes->nome; ?>
+                </option>     
+                <?php endforeach; ?>
+            </select>   
+            <br><br>
             <input type="submit" name="salvarPF" value="Salvar">
         <?php echo form_close(); ?>
     </body>

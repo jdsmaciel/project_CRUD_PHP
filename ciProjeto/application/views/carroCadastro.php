@@ -23,7 +23,14 @@ and open the template in the editor.
             <br><br>           
             <input type="text" name="porta" placeholder="Portas aqui..."/>
             <br><br>
-            <input type="text" name="idPessoa" placeholder="Id Pessoa aqui..."/>
+            <select name="idPessoa"^>
+                <option value="">Proprietario</option>
+                <?php foreach ($pessoas as $pes): ?>
+                <option value="<?php echo $pes->idPessoa; ?>">
+                    <?php echo $pes->nome; ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
             <br><br>
             <input type="submit" name="salvarPF" value="Salvar">
             <input type="reset" name="limpar" value="Limpar">
@@ -34,7 +41,13 @@ and open the template in the editor.
         <table>
             <thead>
                 <tr>
-                    <th>Cor</th><th>Marca</th><th>Modelo</th><th>Placa</th><th>Portas</th><th>Id Pessoa</th>
+                    <th>Cor</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                    <th>Portas</th>
+                    <th>Proprietário</th>
+                    <th>Funções</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,9 +58,17 @@ and open the template in the editor.
                     <td><?php echo $car->modelo; ?></td>
                     <td><?php echo $car->placa; ?></td>
                     <td><?php echo $car->porta; ?></td>
-                    <td><?php echo $car->idPessoa; ?></td>
-                    <td>
-                       
+
+                    <td><?php 
+                        foreach ($pessoas as $pes):
+                            if($pes->idPessoa==$car->idPessoa){
+                                echo $pes->nome;
+                                break;
+                            }
+                        endforeach;
+                        ?>
+                    </td>
+                    <td>  
                         <a href="<?php echo base_url() . 
                                 'carro/editar/' .
                                 $car->idCarro;?>">Editar</a> | 
