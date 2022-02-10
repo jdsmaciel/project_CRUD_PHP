@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Description of Pessoa_model
  *
- * @author jairb
+ * @author Jaderson Maciel
  */
 class Carro_model extends CI_Model {
 
